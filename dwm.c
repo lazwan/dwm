@@ -1584,6 +1584,7 @@ run(void)
 
 void
 runAutostart(void) {
+	system("cd ~/.dwm/scripts; ./display.sh &");
 	system("cd ~/.dwm/scripts; ./wp-change.sh &");
 	system("cd ~/.dwm/scripts; ./start-xcompmgr.sh");
 	system("cd ~/.dwm/scripts; ./autostart.sh &");
