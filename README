@@ -6,6 +6,10 @@ dwm is an extremely fast, small, and dynamic window manager for X.
 Requirements
 ------------
 In order to build dwm you need the Xlib header files.
+You need install some apps
+~~~shell
+sudo pacman -S feh amixer acpitool bc
+~~~
 
 
 Installation
