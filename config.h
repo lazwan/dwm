@@ -34,8 +34,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-// static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
-static const char *tags[] = { "\uf120", "\uf7ae", "\uf121", "\uf04b", "\ue62e", "\uf251", "\ue727", "\uf537", "\uf684" };
+static const char *tags[] = { "一", "二", "三", "四", "五" };
+//static const char *tags[] = { "\uf120", "\uf7ae", "\uf121", "\uf04b", "\ue62e", "\uf251", "\ue727", "\uf537", "\uf684" };
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -94,7 +94,7 @@ static Key keys[] = {
     { MODKEY,                       XK_p,            spawn,          {.v = dmenucmd } },
     { MODKEY|ShiftMask,             XK_Return,       spawn,          {.v = termcmd } },
     { MODKEY|ShiftMask,             XK_t,	         spawn,          {.v = trayercmd } },
-    { MODKEY,                       XK_grave,        togglescratch,  {.v = scratchpadcmd } },
+    { MODKEY,                       XK_apostrophe,   togglescratch,  {.v = scratchpadcmd } },
     { MODKEY|ShiftMask,             XK_p,            spawn,          {.v = suspendcmd } },
     { MODKEY|ControlMask,           XK_s,            spawn,          {.v = sktogglecmd } },
     { 0,                            XF86XK_AudioLowerVolume,       spawn,          {.v = downvol } },

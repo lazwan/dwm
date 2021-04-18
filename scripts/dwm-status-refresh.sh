@@ -93,34 +93,21 @@ get_battery_charging_status() {
 
 	if $(acpi -b | grep --quiet Discharging)
 	then
-		echo "🔋";
+		echo "Bat";
 	else # acpi can give Unknown or Charging if charging, https://unix.stackexchange.com/questions/203741/lenovo-t440s-battery-status-unknown-but-charging
-		echo "🔌";
+		echo "Bat";
 	fi
 }
 
 
 
 print_bat(){
-	#hash acpi || return 0
-	#onl="$(grep "on-line" <(acpi -V))"
-	#charge="$(awk '{ sum += $1 } END { print sum }' /sys/class/power_supply/BAT*/capacity)%"
-	#if test -z "$onl"
-	#then
-		## suspend when we close the lid
-		##systemctl --user stop inhibit-lid-sleep-on-battery.service
-		#echo -e "${charge}"
-	#else
-		## On mains! no need to suspend
-		##systemctl --user start inhibit-lid-sleep-on-battery.service
-		#echo -e "${charge}"
-	#fi
-	#echo "$(get_battery_charging_status) $(get_battery_combined_percent)%, $(get_time_until_charged )";
-	echo "$(get_battery_charging_status) $(get_battery_combined_percent)%, $(get_time_until_charged )";
+	# echo "$(get_battery_charging_status) $(get_battery_combined_percent)%, $(get_time_until_charged )";
+	echo "$(get_battery_charging_status) $(get_battery_combined_percent)%";
 }
 
 print_date(){
-	date '+%Y年%m月%d日 %H:%M'
+	date '+%Y/%m/%d %H:%M'
 }
 
 show_record(){
@@ -153,10 +140,11 @@ export IDENTIFIER="unicode"
 get_bytes
 
 # Calculates speeds
-vel_recv=$(get_velocity $received_bytes $old_received_bytes $now)
-vel_trans=$(get_velocity $transmitted_bytes $old_transmitted_bytes $now)
+# vel_recv=$(get_velocity $received_bytes $old_received_bytes $now)
+# vel_trans=$(get_velocity $transmitted_bytes $old_transmitted_bytes $now)
 
-xsetroot -name "  💿 $(print_mem)M ⬇️ $vel_recv ⬆️ $vel_trans $(dwm_alsa) [ $(print_bat) ]$(show_record) $(print_date) "
+# xsetroot -name "  💿 $(print_mem)M ⬇️ $vel_recv ⬆️ $vel_trans $(dwm_alsa) [ $(print_bat) ]$(show_record) $(print_date) "
+xsetroot -name "[$(dwm_alsa)][$(print_bat)][$(show_record)$(print_date)]"
 
 # Update old values to perform new calculations
 old_received_bytes=$received_bytes
