@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=dwm
+Comment=To start dwm session
+Exec=/usr/local/bin/dwm
+Type=Application
