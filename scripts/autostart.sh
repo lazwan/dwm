@@ -7,5 +7,5 @@
 /bin/bash ~/.dwm/scripts/inverse-scroll.sh &
 nm-applet &
 fcitx &
-#xfce4-volumed-pulse &
+nohup clash &
 ~/scripts/.dwm/autostart_wait.sh &
